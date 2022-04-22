@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Personal
+from .models import Personal, Education, ProfExperience
 import datetime
 
 now = datetime.datetime.today()
@@ -36,7 +36,11 @@ def AboutView(request):
 
 def ResumeView(request):
     person = Personal.objects.all().first()
+    education = Education.objects.all()
+    profexp = ProfExperience.objects.all()
     context = {
+        "page_title": "HOME", "sub_title": "Home Page",
+        "education": education, 'profexp': profexp,
     }
     return render(request, 'includes/resume.html', context)
 

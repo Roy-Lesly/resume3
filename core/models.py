@@ -44,10 +44,12 @@ class Personal(models.Model):
 
 class Education(models.Model):
     user = models.ForeignKey(Personal, on_delete=models.CASCADE)
+    diplome = models.CharField(max_length=20, blank=False, null=False)
     school = models.CharField(max_length=50, blank=False, null=False)
-    course = models.CharField(max_length=25, blank=False, null=False)
+    course = models.CharField(max_length=30, blank=False, null=False)
     start = models.CharField(max_length=4, blank=False, null=False)
     end = models.CharField(max_length=4, blank=False, null=False)
+    detail = models.CharField(max_length=100, blank=False, null=False)
 
 
 class OtherTraining(models.Model):
